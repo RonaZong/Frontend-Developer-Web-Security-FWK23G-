@@ -1,0 +1,113 @@
+<!--Document type-->
+<!Doctype html>
+<html lang="en">
+    <head>
+        <!--used by browser (how to display content or reload page),
+        by search engines (keywords), other web services-->
+        <meta charset="UTF-8"> <!--define the character set used-->
+        <meta name="keywords" content="HTML, CSS, JavaScript"> <!--define keywords for search engines-->
+        <meta name="description" content="Free Web tutorials"> <!--define description of web page-->
+        <meta name="author" content="Rona Zong"> <!--define author of page-->
+        <meta http-equiv="refresh" content="30"> <!--refresh document every 30s-->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!--setting viewpoint to make website look good on all devices-->
+        <!--defines a title in the browser toolbar, 
+            provides a title for the page when it is added to favorites,
+            displays a title for the page in search engine-results-->
+        <title>HTML-1</title>
+        <base href="HTML-1.html" target="_blank"> <!--specify base URL for all relative URLs in page-->
+        <link rel="stylesheet" href="HTML-1.css">
+        <script src="myscript.js"></script>
+        <link rel="icon" type="image/x-icon" href="/images/favicon.ico"> <!--favicon--> 
+        <style>
+        </style>
+    </head>
+    
+    <body>
+        <!-- <tagname style="property:value;"></tagname> -->
+        <!-- <img src="url" alt="alternatetext">S -->
+        <h1 title="heading">Heading 1</h1>
+        <p title="paragraph"> This is a <br title="line break"> paragraph.</p>
+        <hr title="horizontal rule">
+        <div title="division">use as container for other elements</div>
+        <span>inline container to mark up text, does not start on a new line, takes up as much width as necessary</span>
+        
+        <!-- Class used by multiple elements -->
+        <div class="city"> 
+            <h2>London</h2>
+            <p>London is the capital city of England. It is the most populous city in the United Kingdom, 
+                with a metropolitan area of over 13 million inhabitants.</p>    
+        </div>
+        <p>
+            My mother has <span style="color:blue;font-weight:bold;">blue</span> 
+            eyes and my father has <span style="color:darkolivegreen;font-weight:bold;">dark green</span> eyes.
+        </p>
+        <h1>My <span class="note">Important</span> Heading</h1>
+        <p>This is some <span class="note">important</span> text.</p>
+        
+        <!-- id used only by one element -->
+        <h1 id="myHeader">My Header</h1> 
+
+        <h2>Preformatted text</h2>
+        <pre title="preformatted text">
+            <b>Bold text</b>
+            <strong>Important text</strong>
+            <i>Italic text</i>
+            <em>Emphasized text</em>
+            <mark>Marked text</mark>
+            <small>smaller text</small>
+            <del>Deleted text</del>
+            <ins>Inserted text</ins>
+            <sub>Subscript text</sub>
+            <sup>Superscript text</sup>
+            <q>Short Quotation</q>
+            <abbr>Abbreviations</abbr>
+        </pre>
+        <hr>
+        
+        <h2>Quotations</h2>
+        <blockquote title="quotations" cite="http://www.worldwildlife.org/who/index.html/">
+            For 60 years, <abbr title="World Wild Life">WWF</abbr> has worked to help people and nature thrive. As the world's leading conservation organization, 
+            WWF works in nearly 100 countries. At every level, we collaborate with people around the world to develop and deliver innovative solutions that protect communities, wildlife, and the places in which they live.
+        </blockquote>
+        <hr>
+
+        <h2>Address</h2>
+        <address title="Contact information for author">
+            Written by Rona Zong.<br>
+            Visit us at:<br>
+            Example.com<br>
+            43638, Askim<br>
+            Sweden
+        </address>
+        <hr>
+
+        <h2>Citation</h2>
+        <cite title="title of a work">The Scream</cite>
+        <hr>
+
+        <h2>Bi-Directional Override</h2>
+        <bdo title="Bi-Directional override" dir="rtl">This text will be written from right to left</bdo>
+
+        <h2>Computer Code</h2>
+        <!--code define a piece of computer code-->
+        <pre>
+            <code>
+                x = 5;
+                y = 6;
+                z = x + y;
+            </code>
+        </pre>
+        <!--kbd define keyboard input-->
+        <p>Save the document by pressing <kbd>Ctrl + S</kbd></p>
+        <!--samp define sample output from a computer program-->
+        <p><samp>File not found.<br>Press F1 to continue</samp></p>
+        <!--var define a variable in programming or in a mathematical expression-->
+        <p>The area of a triangle is : 1/2 x <var>b</var> x <var>h</var>, where <var>b</var> is the base, and <var>h</var> is the vertical height.</p>
+
+        <!--&entity_name-->
+        <!--&#entity_number-->
+        <!--&lt, &#60 = less than, &gt = greather than-->
+        <!--&nbsp = non-breaking space-->
+        <!--&#8209 = non-breaking hyphen - -->
+    </body>
+</html>

@@ -1,0 +1,221 @@
+<!Doctype html>
+<html lang="en">
+    <head>
+    <!-- <style>
+        body {background-color: aliceblue;}
+        h1 {color: blue;}
+        p {color: red;}
+    </style> -->
+    <title>Page Title</title>
+    <link rel="icon" type="image/x-icon" href="/images/favicon.ico"> <!--favicon--> 
+    <link rel="stylesheet" href="styles.css">
+    </head>
+    
+    <body>
+        <h1 title="heading" style="color:blue;" >Heading 1</h1>
+        <p title="paragraph" style="color:red;"> This is a <br title="line break"> paragraph.</p>
+        <hr title="horizontal rule">
+
+        <h2>Preformatted text</h2>
+        <pre title="preformatted text">
+            <b>Bold text</b>
+            <strong>Important text</strong>
+            <i>Italic text</i>
+            <em>Emphasized text</em>
+            <mark>Marked text</mark>
+            <small>smaller text</small>
+            <del>Deleted text</del>
+            <ins>Inserted text</ins>
+            <sub>Subscript text</sub>
+            <sup>Superscript text</sup>
+            <q>Short Quotation</q>
+            <abbr>Abbreviations</abbr>
+        </pre>
+        <hr>
+        
+        <h2>Quotations</h2>
+        <blockquote title="quotations" cite="http://www.worldwildlife.org/who/index.html/">
+            For 60 years, <abbr title="World Wild Life">WWF</abbr> has worked to help people and nature thrive. As the world's leading conservation organization, 
+            WWF works in nearly 100 countries. At every level, we collaborate with people around the world to develop and deliver innovative solutions that protect communities, wildlife, and the places in which they live.
+        </blockquote>
+        <hr>
+
+        <h2>Address</h2>
+        <address title="Contact information for author">
+            Written by Rona Zong.<br>
+            Visit us at:<br>
+            Example.com<br>
+            43638, Askim<br>
+            Sweden
+        </address>
+        <hr>
+
+        <h2>Citation</h2>
+        <cite title="title of a work">The Scream</cite>
+        <hr>
+
+        <h2>Bi-Directional Override</h2>
+        <bdo title="Bi-Directional override" dir="rtl">This text will be written from right to left</bdo>
+        <hr>
+
+        <h2>Absolute URLs</h2>
+        <a href="http://www.w3schools.com" target="_blank">w3schools</a> <!--new window-->
+        <a href="http://www.w3schools.com/html.">Visit our Html tutorial</a>
+        <hr>
+
+        <h2>Relative URLs</h2>
+        <pre>
+        <a href="html_images.asp">HTML Images</a>
+        <a href="default.asp" title="img as link">
+            <img src="smiley.gif" alt="HTML tutorial" style="width:42px; height:42px;">
+        </a>
+        <a href="mailto:ronazong@gmail.com" title="Email as link">Send email</a>
+        <button onclick="document.location='default.asp'" title="Button as link">HTML tutorial</button>
+        </pre>
+        <hr>
+
+        <h2>Images</h2>
+        <img src="w3schools.jpg" alt="W3Schools.com alternative text" width="104" height="142">
+        <img src="w3schools.jpg" alt="W3Schools.com alternative text" style="width:104px; height:142px;">
+        <hr>
+        
+        <h2 id="bookmark">Bookmark</h2>
+        <a href="#bookmark">Jump to bookmark</a>
+        <hr>
+        
+        <h2>Map</h2>
+        <map name="workmap" title="clickable areas">
+            <area shape="rect" coords="34,44,270,350" alt="Computer" href="computer.htm">
+            <area shape="rect" coords="290,172,333,250" alt="Phone" href="phone.htm">
+            <area shape="circle" coords="337,300,44" alt="Coffee" href="coffee.htm" onclick="myFunction()">
+        </map>
+        <script>
+            function myFunction() {
+                alert("You clicked the coffee cup!")
+            }
+        </script>
+        <img src="workplace.jpg" alt="Workplace" usemap="#workmap">
+        <hr>
+
+        <h2>Picture</h2>
+        <picture> <!--show different images for different screen sizes-->
+            <source media="(min-width: 650px)" srcset="img_food.jpg">
+            <source media="(min-width:465px)" srcset="img_car.jpg">
+            <img src="img_girl.jpg" alt="">
+        </picture>
+        <hr>
+
+        <h2>Table</h2>
+        <table style="width: 100%;">
+            <tr> <!--table row-->
+                <th style="width: 70%;">Company</th> <!--table header-->
+                <th>Contact</th>
+                <th>Country</th>
+            </tr>
+            <tr style="height: 200px;">
+                <td>LOL</td> <!--table data-->
+                <td>Xingrong Zong</td>
+                <td>China</td>
+            </tr>
+            <tr>
+                <td>OLO</td>
+                <td>Zhuowen Chen</td>
+                <td>China</td>
+            </tr>
+        </table>
+        <hr>
+
+        <h2>Table</h2>
+        <table>
+            <tr> <!--table row-->
+                <th>Company</th> <!--table header-->
+                <td>LOL</td>
+                <td>OLO</td>
+            </tr>
+            <tr>
+                <th>Contact</th> <!--table data-->
+                <td>Xingrong Zong</td>
+                <td>Zhuowen Chen</td>
+            </tr>
+            <tr>
+                <th>Country</th>
+                <td>China</td>
+                <td>China</td>
+            </tr>
+        </table>
+        <hr>
+
+        <h2>Table</h2>
+        <table>
+            <tr> <!--table row-->
+                <th colspan="2">Name</th> <!--table header-->
+                <th>Age</th>
+            </tr>
+            <tr>
+                <td>Xingrong</td>
+                <td>Zong</td>
+                <td>24</td>
+            </tr>
+            <tr>
+                <td>Zhuowen</td>
+                <td>Chen</td>
+                <td>23</td>
+            </tr>
+        </table>
+        <hr>
+
+        <h2>Table</h2>
+        <table>
+            <tr>
+              <th>Name</th>
+              <td>Jill</td>
+            </tr>
+            <tr>
+              <th rowspan="2">Phone</th>
+              <td>555-1234</td>
+            </tr>
+            <tr>
+              <td>555-8745</td>
+          </tr>
+          </table>
+        <hr>
+
+        <h2>Table</h2>
+        <table style="width: 100%;">
+            <caption>Monthly savings</caption>
+            <tr> <!--table row-->
+                <th>Month</th>
+                <th>Savings</th>
+            </tr>
+            <tr>
+                <td>January</td>
+                <td>1000</td>
+            </tr>
+            <tr>
+                <td>February</td>
+                <td>1500</td>
+            </tr>
+        </table>
+        <hr>
+
+        <table>
+            <colgroup>
+              <col span="2" style="background-color: #D6EEEE">
+              <col span="3" style="background-color: pink">
+              <col span="2" style="visibility: collapse">
+            </colgroup>
+            <tr>
+              <th>MON</th>
+              <th>TUE</th>
+              <th>WED</th>
+              <th>THU</th>
+              <th>FRI</th>
+              <th>SAT</th>
+              <th>SUN</th>
+            </tr>
+        </table>  
+            
+        <!-- <tagname style="property:value;"></tagname> -->
+        <!-- <img src="url" alt="alternatetext">S -->
+    </body>
+</html>

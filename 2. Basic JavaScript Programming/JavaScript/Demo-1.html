@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Whack A Mole!</title>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Amatic+SC:400,700" type="text/css">
+        <link rel="stylesheet" href="Demo-1.css">
+        <link rel="icon" href="https://fav.farm/🔥">
+    </head>
+    <body>
+        <h1>Whack-a-mole! <span class="score">0</span></h1>
+        <h4 class="gameOver"></h4>
+        <button onclick="startGame()">Start!</button>
+        
+        <div class="game">
+            <div class="hole hole1">
+                <div class="mole"></div>
+            </div>
+            <div class="hole hole2">
+                <div class="mole"></div>
+            </div>
+            <div class="hole hole3">
+                <div class="mole"></div>
+            </div>
+            <div class="hole hole4">
+                <div class="mole"></div>
+            </div>
+            <div class="hole hole5">
+                <div class="mole"></div>
+            </div>
+            <div class="hole hole6">
+                <div class="mole"></div>
+            </div>
+        </div>
+
+        <script>
+            // Todolist
+            // 1. Få en bäver att titta upp
+            // 2. Få bäver att titta upp ur random hål
+            // 3. Få bäver att titta upp en random tid ur hål
+            // 4. Tillåt klick på bäver och öka score
+            // 5. Sätt deadline på spel för när det ska ta slut
+            
+            const holes = document.querySelectorAll(".hole");
+            const scoreBoard = document.querySelector(".score");
+            const gameOverBoard = document.querySelector(".gameOver");
+            const moles = document.querySelectorAll(".mole");
+
+            let score = 0;
+            let timesUp = false;
+
+            // Choose random time between min and max
+            function randonTime(min, max) {
+                return Math.random() * (max - min) + min; // 200~1000
+            }
+            // Choose random hole
+            function randomHole(holes) {
+                const idx = Math.floor(Math.random() * holes.length);
+                const holes = holes[idx];
+                return hole;
+            }
+            // Show up
+            function peep() {
+                const time = randomTime(500, 1200); // millisecond
+                const hole = randomHole(holes);
+                hole.classList.add("up"); // .hole.up
+                setTimeout(function () {
+                    hole.classList.remove("up");
+                    if (!timesUp) {
+                        peep();
+                    }
+                }, time);
+            }
+            // Start Game
+            function startGame() {
+                setTimeout(function () {
+                    timesUp = true;
+                    gameOverBoard.textContent = "Game Over";
+                }, 10000);
+                peep();
+            }
+            // Bang
+            function bonk() {
+                score++;
+                this.parentNode.classList.remove("up");
+                scoreBoard.textContent = score;
+            }
+            for (let i = 0; i < moles.length; i++) {
+                moles[i].addEventListener("click", bonk);
+            }
+        </script>
+    </body>
+</html>

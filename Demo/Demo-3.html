@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Demo-3 Media Queries</title>
+        <link rel="stylesheet" href="demo3.css">
+        <meta charset="UTF-8"> <!--define the character set used-->
+        <meta name="keywords" content="HTML, CSS, JavaScript"> <!--define keywords for search engines-->
+        <meta name="description" content="Free Web tutorials"> <!--define description of web page-->
+        <meta name="author" content="Rona Zong"> <!--define author of page-->
+        <meta http-equiv="refresh" content="30"> <!--refresh document every 30s-->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!--setting viewpoint to make website look good on all devices-->
+        <base href="HTML-1.html" target="_blank"> <!--specify base URL for all relative URLs in page-->
+        <style>
+            * {
+                box-sizing: border-box;
+            }
+
+            .left {
+                background-color: #2196F3;
+                padding: 20px;
+                float: left;
+                width: 20%; /* The width is 20%, by default */
+            }
+
+            .main {
+                background-color: #f1f1f1;
+                padding: 20px;
+                float: left;
+                width: 60%; /* The width is 60%, by default */
+            }
+
+            .right {
+                background-color: #04AA6D;
+                padding: 20px;
+                float: left;
+                width: 20%; /* The width is 20%, by default */
+            }
+
+            /* Use a media query to add a break point at 800px: */
+            @media screen and (max-width: 800px) {
+                .left, .main, .right {
+                    width: 100%; /* The width is 100%, when the viewport is 800px or smaller */
+                }
+            }
+        </style>
+    </head>
+
+    <body>
+        <h2>Media Queries</h2>
+        <p>Resize the browser window.</p>
+
+        <p>Make sure you reach the breakpoint at 800px when resizing this frame.</p>
+
+        <div class="left">
+        <p>Left Menu</p>
+        </div>
+
+        <div class="main">
+        <p>Main Content</p>
+        </div>
+
+        <div class="right">
+        <p>Right Content</p>
+        </div>
+
+    </body>
+</html>
+

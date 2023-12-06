@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>HTML-7</title>
+        <link ref="stylesheet" href="styles7.css">
+        <meta charset="UTF-8"> <!--define the character set used-->
+        <meta name="keywords" content="HTML, CSS, JavaScript"> <!--define keywords for search engines-->
+        <meta name="description" content="Free Web tutorials"> <!--define description of web page-->
+        <meta name="author" content="Rona Zong"> <!--define author of page-->
+        <meta http-equiv="refresh" content="30"> <!--refresh document every 30s-->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!--setting viewpoint to make website look good on all devices-->
+        <base href="HTML-1.html" target="_blank"> <!--specify base URL for all relative URLs in page-->
+    </head>
+
+    <body>
+        <h1>Media</h1>
+        <h2>Multimedia</h2>
+        <p>Multimedia on the web is sound, music, movies, and animations</p>
+
+        <h2>Video</h2>
+        <p>Video is used to show a video on a web page</p>
+        <!--controls adds video controls, like play, pause, and volume-->
+        <!--autoplay start a video automatically-->
+        <!--muted after autoplay let video start playing automatically, but muted-->
+        <video width="400" controls autoplay muted>
+            <source src="mov_bbb.mp4" type="video/mp4">
+            <source src="mov_bbb.ogg" type="video/ogg">
+            Your browser does not support HTML video.
+        </video>
+        <p>
+            Video courtesy of 
+            <a href="https://www.bigbuckbunny.org/" target="_blank">Big Buck Bunny</a>.
+        </p>
+        <!--Methods, Properties, and Events; allow user to load, play, and pause videos, as well as setting duration and volume-->
+        <div style="text-align:center"> 
+            <button onclick="playPause()">Play/Pause</button> 
+            <button onclick="makeBig()">Big</button>
+            <button onclick="makeSmall()">Small</button>
+            <button onclick="makeNormal()">Normal</button>
+            <br><br>
+            <video id="video1" width="420">
+              <source src="mov_bbb.mp4" type="video/mp4">
+              <source src="mov_bbb.ogg" type="video/ogg">
+              Your browser does not support HTML video.
+            </video>
+        </div> 
+          
+        <script> 
+            var myVideo = document.getElementById("video1"); 
+          
+            function playPause() { 
+                if (myVideo.paused) 
+                myVideo.play(); 
+                else 
+                myVideo.pause(); 
+            } 
+            
+            function makeBig() { 
+                myVideo.width = 560; 
+            } 
+          
+            function makeSmall() { 
+                myVideo.width = 320; 
+            } 
+            
+            function makeNormal() { 
+                myVideo.width = 420; 
+            } 
+        </script> 
+        <p>Video courtesy of <a href="https://www.bigbuckbunny.org/" target="_blank">Big Buck Bunny</a>.</p>
+
+        <h2>Audio</h2>
+        <!--audio play an audio file in HTML-->
+        <!--controls adds audio controls, like play, pause, and volume-->
+        <!--autoplay start an audio file automatically-->
+        <!--muted after autoplay let video start playing automatically, but muted-->
+        <!--source allows user to specify alternative audio files which the browser may choose from. The browser will use the first recognized format-->
+        <audio controls autoplay muted>
+            <source src="horse.ogg" type="audio/ogg">
+            <source src="horse.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+        </audio>
+
+        <h2>Plug-ins</h2>
+        <!--Plug-ins are computer programs that extend the standard functionality of the browser;
+            design to be used for many different purposes:
+            To run Java applets;
+            To run Microsoft ActiveX controls;
+            To display Flash movies;
+            To display maps;
+            To scan for viruses;
+            To verify a bank id-->
+        <!--object defines an embedded object within an HTML document, is supported by all browsers-->
+        <object width="100%" height="500px" data="snippet.html"></object>
+        <object data="audi.jpeg"></object>
+        <!--embed defines an embedded object within an HTML document, is supported in all major browsers-->
+        <embed src="audi.jpeg">
+        <embed width="100%" height="500px" src="snippet.html">
+        
+        <h2>Youtube</h2>
+        <!--Youtube is easiest way to play videos in HTML;
+        display an id (like tgbNymZ7vqY), when save (or play) a video; use this id, and refer to your video in the HTML code,
+        to play your video on a web page, do the following:
+        Upload the video to YouTube;
+        Take a note of the video id;
+        Define an <iframe> element in your web page;
+        Let the src attribute point to the video URL;
+        Use the width and height attributes to specify the dimension of the player;
+        Add any other parameters to the URL (see below)-->
+        <iframe width="420" height="315"
+            src="https://www.youtube.com/embed/tgbNymZ7vqY">
+        </iframe>
+        <!--adding autoplay=1 to the YouTube URL, start playing automatically when a user visits the page. However, automatically starting a video is annoying for your visitors!-->
+        <!--add mute=1 after autoplay=1 to let your video start playing automatically (but muted).-->
+        <iframe width="420" height="315"
+            src="https://www.youtube.com/embed/tgbNymZ7vqY?autoplay=1&mute=1">
+        </iframe>
+        <!--add loop=1 to let your video loop forever.
+            Value 0 (default): The video will play only once.
+            Value 1: The video will loop (forever).-->
+        <iframe width="420" height="315"
+            src="https://www.youtube.com/embed/tgbNymZ7vqY?playlist=tgbNymZ7vqY&loop=1">
+        </iframe>
+        <!--add controls=0 to not display controls in the video player.
+            Value 0: Player controls does not display.
+            Value 1 (default): Player controls display.-->
+        <iframe width="420" height="315"
+            src="https://www.youtube.com/embed/tgbNymZ7vqY?controls=0">
+        </iframe>
+        
+    </body>
+</html>

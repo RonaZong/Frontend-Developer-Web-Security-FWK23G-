@@ -1,0 +1,18 @@
+/* Selector {Property: Value; Property: Value */
+/* Universal Selector */
+* {box-sizing: border-box;}
+
+/* Element Selector */
+p {text-align: center;}
+
+/* ID Selecter */
+/* ID name cannot start with number */
+#para1 {text-align: center;}
+
+/* Class Selector */
+.center {text-align: center;}
+/* only p elemets with class center */
+p.center {text-align: center;}
+
+/* Grouping Selector */
+h1, h2, h3, h4, h5, h6, p {font-family: 'Courier New', Courier, monospace;}

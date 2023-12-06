@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>HTML Events & DOM</title>
+        <link rel="stylesheet" href="">
+        <script src="JS-7.js"></script>
+    </head>
+    <body>
+        <!-- HTML Events: https://www.w3schools.com/jsref/dom_obj_event.asp -->
+        <!-- HTML events can be something the browser does, or something a user does:
+            onchange - an HTML element has been changed 
+            onclick - the user clicks an HTML element
+            onmouseover - the user moves the mouse over an HTML element
+            onmouseout - the user moves the nouse away from an HTML element
+            onkeydown - the user pushes a keyboard key
+            onload - the browser has finished loading the page -->
+        <!-- <element event = "some JavaScript"> -->
+        
+        <!-- Event Handlers can be used to handle and verify user input, user actions, and browser actions:
+            Things that should be done every time a page loads.
+            Things that should be done when the page is closed.
+            Action that hsould be performed when a user clicks a button.
+            Content that should be verified when a user inputs data.
+            And more ... -->
+
+        <!-- Many different methods can be used to let JS work with events:
+            HTML event attributes can execute JS code directly.
+            HTML event attributes can call JS functions.
+            You can assign your own event handler functions to HTML elements.
+            You can prevent events from being sent or being handled.
+            And more ... -->
+        
+        <!-- onclick attribute -->
+        <button onclick="document.getElementById('demo').innerHTML = Date()">Time 1</button>
+        <button onclick="displayDate()">Time 2</button>
+        <script>
+            function displayDate() {
+                document.getElementById("demo").innerHTML = Date();
+            }
+        </script>
+
+        <p id="demo"></p>
+
+        <!-- HTML DOM (Document Object Model) -->
+        <h1>JavaScript HTML DOM</h1>
+        <h2>Find HTML Elements</h2>
+        <p id="id">Finding HTML Elements by ID</p>
+        <p>Finding HTML Elements by Tag Name.</p>
+        <p class="class">Finding HTML Elements by Class Name.</p>
+        <form id="form">
+            First Name: <input type="text" name="fname" value="Xingrong"><br>
+            Last Name: <input type="text" name="lname" value="Zong"><br>
+        </form>
+
+        <h2>Change HTML Elements</h2>
+        <p id="innerHTML">Change inner HTML</p>
+        
+
+        <img id="image" src="">
+
+        <form name="form2" action="/action_page.php" onsubmit="return validateForm()" method="post">
+        Name (with function): <input type="text" name="fname">
+        <input type="submit" value="Submit">
+        </form>
+
+        <!-- Automatic Form Validation -->
+        <form action="/action_page.php" method="post">
+            <!-- required attribute prevents empty form from being submitted -->
+            Name (with required): <input type="text" name="fname" required>
+            <input type="submit" value="Submit">
+        </form>
+
+        <!-- Change CSS Properties -->
+        <!-- Use Events -->
+        <button type="button" onclick="document.getElementById('id').style.color = 'red'">Change Color</button>
+
+        <p>Paragraph</p>
+        <p class="main">First main paragraph</p>
+        <p class="main">Second main paragraph</p>
+        <a href="http://www.google.com" id="link">Google</a>
+
+
+            <div id = "div1">
+                <p id="p1">Paragraph 1</p>
+                <p id="p2">Paragraph 2</p>
+            </div>
+            
+    </body>
+</html>

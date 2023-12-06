@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>HTML-2</title>
+        <link rel="stylesheet" href="styles2.css">
+        <link rel="icon" href="/images/console.png">
+        <meta charset="UTF-8"> <!--define the character set used-->
+        <meta name="keywords" content="HTML, CSS, JavaScript"> <!--define keywords for search engines-->
+        <meta name="description" content="Free Web tutorials"> <!--define description of web page-->
+        <meta name="author" content="Rona Zong"> <!--define author of page-->
+        <meta http-equiv="refresh" content="30"> <!--refresh document every 30s-->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!--setting viewpoint to make website look good on all devices-->
+        <base href="HTML-1.html" target="_blank"> <!--specify base URL for all relative URLs in page-->
+    </head>
+
+    <body>
+        <!-- Source / Links -->
+        <h1>Images</h1>
+        <h2>Absolute file path</h2>
+        <img src="https://www.w3schools.com/images/picture.jpg" alt="Mountain">
+        <h2>Relative file path</h2>
+        <img src="/images/autumn.jpg" alt="Autumn" style="width:104px; height:142px;">
+        <img src="w3schools.jpg" alt="W3Schools.com alternative text" style="width:104px; height:142px;">
+        <hr>
+
+        <h1>URL</h1>
+        <!--scheme://prefix.domain:port/path/filename-->
+        <h2>Absolute URLs</h2>
+        <pre>
+            <a href="http://www.w3schools.com" target="_blank">w3schools</a> <!--new window-->
+            <a href="http://www.w3schools.com/html.">Visit our Html tutorial</a>
+        </pre>
+        <h2>Relative URLs</h2>
+        <pre>
+            <a href="html_images.asp">HTML Images</a>
+            <a href="default.asp" title="img as link">
+                <img src="smiley.gif" alt="HTML tutorial" style="width:42px; height:42px;">
+            </a>
+            <button onclick="document.location='default.asp'" title="Button as link">HTML tutorial</button>
+            <a href="mailto:ronazong@gmail.com" title="Email as link">Send email</a>
+        </pre>
+        <hr>
+
+        <h2 id="bookmark">Bookmark</h2>
+        <a href="#bookmark">Jump to bookmark</a>
+        
+        <h2>Map</h2>
+        <map name="workmap" title="clickable areas">
+            <area shape="rect" coords="34,44,270,350" alt="Computer" href="computer.htm">
+            <area shape="rect" coords="290,172,333,250" alt="Phone" href="phone.htm">
+            <area shape="circle" coords="337,300,44" alt="Coffee" href="coffee.htm">
+        </map>
+        <hr>
+
+        <h2>Picture</h2>
+        <picture> <!--show different images for different screen sizes-->
+            <source media="(min-width: 650px)" srcset="img_food.jpg">
+            <source media="(min-width:465px)" srcset="img_car.jpg">
+            <img src="img_girl.jpg" alt="girl">
+        </picture>
+        <hr>
+
+        <!--embed another document within the current document-->
+        <iframe src="url" title="description"></iframe>
+        <iframe src="demo_iframe.htm" style="height: 200px; width: 300px; border: none;" name="iframe_a" title="Iframe Example"></iframe>
+        <p><a href="http://www.w3schools.com" target="iframe_a">W3Schools.com</a></p>
+    </body>
+</html>

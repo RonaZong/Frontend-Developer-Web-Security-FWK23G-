@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>HTML-5</title>
+        <link rel="stylesheet" href="styles5.css">
+        <meta charset="UTF-8"> <!--define the character set used-->
+        <meta name="keywords" content="HTML, CSS, JavaScript"> <!--define keywords for search engines-->
+        <meta name="description" content="Free Web tutorials"> <!--define description of web page-->
+        <meta name="author" content="Rona Zong"> <!--define author of page-->
+        <meta http-equiv="refresh" content="30"> <!--refresh document every 30s-->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!--setting viewpoint to make website look good on all devices-->
+        <base href="HTML-1.html" target="_blank"> <!--specify base URL for all relative URLs in page-->
+        <style>
+            .all-browsers {
+                margin: 0;
+                padding: 5px;
+                background-color: lightgray;
+            }
+            
+            .all-browsers > h1, .browser {
+                margin: 10px;
+                padding: 5px;
+            }
+
+            .browser {
+                background: white;
+            }
+  
+            .browser > h2, p {
+                margin: 4px;
+                font-size: 90%;
+            }
+
+            aside {
+                width: 30%;
+                padding-left: 15px;
+                margin-left: 15px;
+                float: right;
+                font-style: italic;
+                background-color: lightgray;
+            }
+        </style>
+    </head>
+
+    <body>
+        <!--header represents a container for introductory content or a set of navigational links: headings, logo or icon, authorship information-->
+        <header>
+            <h1>What Does WWF Do?</h1>
+        </header>
+
+        <!--section define a section in document: chapters, introduction, news items, contact information-->
+        <section>
+            <h1>WWF</h1>
+            <p>The World Wide Fund for Nature (WWF) is an international organization working on issues regarding the conservation, research and restoration of the environment, formerly named the World Wildlife Fund. WWF was founded in 1961.</p>
+        </section>
+            
+        <section>
+            <h1>WWF's Panda symbol</h1>
+            <p>The Panda has become the symbol of WWF. The well-known panda logo of WWF originated from a panda named Chi Chi that was transferred from the Beijing Zoo to the London Zoo in the same year of the establishment of WWF.</p>
+        </section>
+
+        <!--article specify independent, self-contained content: forum posts, blog posts, user comments, product cards, newspaper articles-->
+        <article class="all-browsers">
+            <h1>Most Popular Browsers</h1>
+            <article class="browser">
+                <h2>Google Chrome</h2>
+                <p>Google Chrome is a web browser developed by Google, released in 2008. Chrome is the world's most popular web browser today!</p>
+            </article>
+                
+            <article class="browser">
+                <h2>Mozilla Firefox</h2>
+                <p>Mozilla Firefox is an open-source web browser developed by Mozilla. Firefox has been the second most popular web browser since January, 2018.</p>
+            </article>
+                
+            <article class="browser">
+                <h2>Microsoft Edge</h2>
+                <p>Microsoft Edge is a web browser developed by Microsoft, released in 2015. Microsoft Edge replaced Internet Explorer.</p>
+            </article>
+        </article>
+
+        <!--footer defines a footer for a document or section: authorship informatioini, copyright information, contact information, sitemap, back to top links, related documents-->
+        <footer>
+            <p>Author: Rona Zong</p>
+            <p><a href="mailto:ronazong@gmail.com">ronazong@gmail.com</a></p>
+        </footer>
+
+        <!--nav define a set of navigation links-->
+        <nav>
+            <a href="/html/">HTML</a>
+            <a href="/css/">CSS</a>
+            <a href="/js/">JavaScript</a>
+            <a href="/jquery/">jquery</a>
+        </nav>
+
+        <!--aside define some content aside from the content it is placed in, like a sidebar-->
+        <aside>
+            <h4>Epcot Center</h4>
+            <p>Epcot is a theme park at Walt Disney World Resort featuring exciting attractions, international pavilions, award-winning fireworks and seasonal special events.</p>
+        </aside>
+
+        <!--figure specify self-contained content: illustrations, diagrams, photos, code listings-->
+        <!--figcaption define a caption for a figure element, can be placed as the 1st or as the last child of a figure element-->
+        <figure>
+            <img src="/images/autumn.jpg" alt="Autumn">
+            <figcaption>Fig1. - Trulli, Puglia, Italy.</figcaption>
+        </figure>
+
+
+    </body>
+</html>

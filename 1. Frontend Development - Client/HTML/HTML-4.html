@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>HTML-4</title>
+        <link rel="stylesheet" href="styles4.css">
+        <meta charset="UTF-8"> <!--define the character set used-->
+        <meta name="keywords" content="HTML, CSS, JavaScript"> <!--define keywords for search engines-->
+        <meta name="description" content="Free Web tutorials"> <!--define description of web page-->
+        <meta name="author" content="Rona Zong"> <!--define author of page-->
+        <meta http-equiv="refresh" content="30"> <!--refresh document every 30s-->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!--setting viewpoint to make website look good on all devices-->
+        <base href="HTML-1.html" target="_blank"> <!--specify base URL for all relative URLs in page-->
+    </head>
+
+    <body>
+        <div class="city"> <!--used ny multiple elements-->
+            <h2>London</h2>
+            <p>London is the capital city of England. It is the most populous city in the United Kingdom, 
+                with a metropolitan area of over 13 million inhabitants.</p>    
+        </div>
+        <button onclick="myFunction()">Hide elements</button>
+        <script>
+            function myFunction() {
+              var x = document.getElementsByClassName("city");
+              for (var i = 0; i < x.length; i++) {
+                x[i].style.display = "none";
+              }
+            }
+        </script>
+
+        <h1 id="myHeader">My Header</h1> <!--used only by one element-->
+        <button onclick="displayResult()">Change text</button>
+        <script>
+            function displayResult() {
+              document.getElementById("myHeader").innerHTML = "Have a nice day!";
+            }
+        </script>
+
+        <p id="demo1"></p>
+        <button type="button" onclick="document.getElementById('demo1').innerHTML = Date()">
+            Click me to display Date and Time.
+        </button>
+
+        <p id="demo2">JavaScript can change the style of an HTML element</p>
+        <button type="button" onclick="myFunction()">Click me!</button>
+        <script>
+            function myFunction() {
+            document.getElementById("demo2").innerHTML = "Hello JavaScript!";
+            document.getElementById("demo2").style.fontSize = "25px";
+            document.getElementById("demo2").style.color = "red";
+            document.getElementById("demo2").style.backgroundColor = "yellow";
+            }
+        </script>
+
+        <p id="demo"></p>
+        <script>
+            document.getElementById("demo").innerHTML = "Hello JavaScript!";
+        </script>
+        <noscript>Sorry, your browser does not support JavaScript!</noscript>
+        <p>A browser without support for JavaScript will show the text written inside the noscript element.</p>
+
+        <h2>Map</h2>
+        <map name="workmap" title="clickable areas">
+            <area shape="rect" coords="34,44,270,350" alt="Computer" href="computer.htm">
+            <area shape="rect" coords="290,172,333,250" alt="Phone" href="phone.htm">
+            <area shape="circle" coords="337,300,44" alt="Coffee" href="coffee.htm" onclick="myFunction()">
+        </map>
+        <script>
+            function myFunction() {
+                alert("You clicked the coffee cup!")
+            }
+        </script>
+        <img src="workplace.jpg" alt="Workplace" usemap="#workmap">
+        <hr>
+    </body>
+</html>

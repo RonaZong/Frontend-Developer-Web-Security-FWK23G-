@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Array Cardio 💪</title>
+    <link rel="icon" href="https://fav.farm/🔥" />
+  </head>
+
+  <body>
+    <script>
+      // Dags att jobba lite, array workout!
+      // ## Array Cardio
+
+      // Lite data att jobba med
+
+      const inventors = [
+        { first: "Albert", last: "Einstein", year: 1879, passed: 1955 },
+        { first: "Isaac", last: "Newton", year: 1643, passed: 1727 },
+        { first: "Galileo", last: "Galilei", year: 1564, passed: 1642 },
+        { first: "Marie", last: "Curie", year: 1867, passed: 1934 },
+        { first: "Johannes", last: "Kepler", year: 1571, passed: 1630 },
+        { first: "Nicolaus", last: "Copernicus", year: 1473, passed: 1543 },
+        { first: "Max", last: "Planck", year: 1858, passed: 1947 },
+        { first: "Katherine", last: "Blodgett", year: 1898, passed: 1979 },
+        { first: "Ada", last: "Lovelace", year: 1815, passed: 1852 },
+        { first: "Sarah E.", last: "Goode", year: 1855, passed: 1905 },
+        { first: "Lise", last: "Meitner", year: 1878, passed: 1968 },
+        { first: "Hanna", last: "Hammarström", year: 1829, passed: 1909 },
+      ];
+
+      const people = [
+        "Bernhard, Sandra",
+        "Bethea, Erin",
+        "Becker, Carl",
+        "Bentsen, Lloyd",
+        "Beckett, Samuel",
+        "Blake, William",
+        "Berger, Ric",
+        "Beddoes, Mick",
+        "Beethoven, Ludwig",
+        "Belloc, Hilaire",
+        "Begin, Menachem",
+        "Bellow, Saul",
+        "Benchley, Robert",
+        "Blair, Robert",
+        "Benenson, Peter",
+        "Benjamin, Walter",
+        "Berlin, Irving",
+        "Benn, Tony",
+        "Benson, Leana",
+        "Bent, Silas",
+        "Berle, Milton",
+        "Berry, Halle",
+        "Biko, Steve",
+        "Beck, Glenn",
+        "Bergman, Ingmar",
+        "Black, Elk",
+        "Berio, Luciano",
+        "Berne, Eric",
+        "Berra, Yogi",
+        "Berry, Wendell",
+        "Bevan, Aneurin",
+        "Ben-Gurion, David",
+        "Bevel, Ken",
+        "Biden, Joseph",
+        "Bennington, Chester",
+        "Bierce, Ambrose",
+        "Billings, Josh",
+        "Birrell, Augustine",
+        "Blair, Tony",
+        "Beecher, Henry",
+        "Biondo, Frank",
+      ];
+
+      // [].forEach()
+      // 1. printa ut alla uppfinnare och födelseår
+      inventors.forEach(inventor1);
+      function inventor1(person) {
+        console.log(`${person.first} ${person.last} was born in ${person.year}.`);
+      }
+
+
+
+      // [].filter()
+      // 2. Filtrera ut alla uppfinnare som dog på 1900-talet
+      inventors.filter(inventor2);
+      function inventor2(person) {
+        if (person.passed >= 1900 && person.passed < 2000) {
+          console.log(`${person.first} ${person.last} passed away in 1900 century.`);
+        }
+      }
+
+      console.log(
+        inventors.filter(function (inventor) {
+          return inventor.passed > 1900;
+        })        
+      );
+
+      // [].map()
+      // 3. mappa till en array med object med bara first och last property
+      people.map(person1);
+      
+      function person1(person) {
+        person.split(",");
+        let arr = [{first: person[0], last: person[1]}]
+        console.log(arr);
+      }
+
+      console.log(
+        inventors.map(function (inventor) {
+          return {first: inventor.first, last: inventor.last}
+        })
+      );
+
+      // [].reduce()
+      // 4. Summera ihop alla cars och vans i array
+      const data = [
+        "car",
+        "car",
+        "truck",
+        "truck",
+        "bike",
+        "walk",
+        "car",
+        "van",
+        "bike",
+        "walk",
+        "car",
+        "van",
+        "car",
+        "truck",
+      ];
+      
+      console.log(
+        data.reduce(function (prev) {
+          let sum = 0;
+          switch(prev) {
+            case "car": sum++;
+            case "van": sum++;
+          }
+          return `${sum} cars and vans`;
+        })
+      );
+    </script>
+  </body>
+</html>

@@ -1,0 +1,47 @@
+body {
+    background-color: aliceblue;
+    font-size: 12pt;
+}
+
+h1 {
+    color:darkslategray;
+}
+
+p {
+    text-indent: 24px;
+    color: #ffffff;
+    background-color: rgb(0,0,0);
+}
+
+table, th, td {
+    border: 1px solid white;
+    border-collapse: collapse;
+}
+
+th, td {
+    background-color: #96D4D4;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333333;
+}
+  
+li {
+    float: left;
+}
+  
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 16px;
+    text-decoration: none;
+}
+  
+li a:hover {
+    background-color: #111111;
+}

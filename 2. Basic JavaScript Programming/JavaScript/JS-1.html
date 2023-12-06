@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Internal JS</title>
+        <link rel="stylesheet" href="../CSS/CSS-1.css">
+    </head>
+
+    <body>
+        <h1 id="h1">Testing JS</h1>
+
+        <!-- Change HTML Content -->
+        <button type="button" onclick="document.getElementsByTagName('h1')[0].innerHTML = 'Testing 1'">Click Me!</button>
+        <button type="button" onclick="document.getElementById('h1').innerHTML = 'Testing 2'">Click Me!</button>
+
+        <!-- Change HTML Attribute Values -->
+        <button onclick="document.getElementById('bulb').src = '../images/pic_bulbon.gif'">Turn on the light</button>
+        <img id="bulb" src="../images/pic_bulboff.gif">
+        <button onclick="document.getElementById('bulb').src = '../images/pic_bulboff.gif'">Turn off the light</button>
+        
+        <!-- Change HTML Styles -->
+        <button type="button" onclick="document.getElementById('h1').style.fontSize='35px'">Change font size</button>
+
+        <!-- Hide/Show HTML Elements -->
+        <button type="button" onclick="document.getElementById('h1').style.display='none'">Hide</button>
+        <button type="button" onclick="document.getElementById('h1').style.display='block'">Show</button>
+
+        <!-- Scripts at the bottom of body elemet improves the display speed -->
+        <script>
+            let h1 = document.getElementsByTagName("h1")[0];
+            h1.innerHTML = "Testing 3"
+        </script>
+
+        <!-- define HTML content -->
+        <button type="button" onclick="F1()">Change</button>
+        <script>
+            function F1() {document.getElementById("h1").innerHTML = "Testing 4"}
+        </script>
+
+        <!-- write after document is loaded, will delete all existing HTML -->
+        <button type="button" onclick="document.write(5 + 6)">Write</button>
+        
+        <!-- alert box display data -->
+        <script>
+            window.alert(5 + 6);
+            alert(5 + 6);
+        </script>
+
+        <!-- console.log display data -->
+        <script>
+            let x = 5;
+            let y = 2;
+            let z = x + y;
+            console.log(z)
+        </script>
+        <script>
+            let p = 1;
+            console.log(p);
+            p = 2;
+            console.log(p);
+            const a = 11;
+            console.log(a);
+            a = 1;
+            console.log(a);
+        </script>
+        
+        <!-- print content of current window -->
+        <button onclick="window.print()">Print</button>
+    </body>
+</html>

@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>HTML-3</title>
+        <link rel="stylesheet" href="styles3.css">
+        <link rel="icon" href="/images/console.png">
+        <meta charset="UTF-8"> <!--define the character set used-->
+        <meta name="keywords" content="HTML, CSS, JavaScript"> <!--define keywords for search engines-->
+        <meta name="description" content="Free Web tutorials"> <!--define description of web page-->
+        <meta name="author" content="Rona Zong"> <!--define author of page-->
+        <meta http-equiv="refresh" content="30"> <!--refresh document every 30s-->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!--setting viewpoint to make website look good on all devices-->
+        <base href="HTML-1.html" target="_blank"> <!--specify base URL for all relative URLs in page-->
+    </head>
+    
+    <body>
+        <h2>Table</h2>
+        <table style="width: 100%;">
+            <tr> <!--table row-->
+                <th style="width: 70%;">Company</th> <!--table header-->
+                <th>Contact</th>
+                <th>Country</th>
+            </tr>
+            <tr style="height: 200px;">
+                <td>LOL</td> <!--table data-->
+                <td>Xingrong Zong</td>
+                <td>China</td>
+            </tr>
+            <tr>
+                <td>OLO</td>
+                <td>Zhuowen Chen</td>
+                <td>China</td>
+            </tr>
+        </table>
+        <hr>
+
+        <h2>Table</h2>
+        <table>
+            <tr> <!--table row-->
+                <th>Company</th> <!--table header-->
+                <td>LOL</td>
+                <td>OLO</td>
+            </tr>
+            <tr>
+                <th>Contact</th> <!--table data-->
+                <td>Xingrong Zong</td>
+                <td>Zhuowen Chen</td>
+            </tr>
+            <tr>
+                <th>Country</th>
+                <td>China</td>
+                <td>China</td>
+            </tr>
+        </table>
+        <hr>
+
+        <h2>Table</h2>
+        <table>
+            <tr> <!--table row-->
+                <th colspan="2">Name</th> <!--table header-->
+                <th>Age</th>
+            </tr>
+            <tr>
+                <td>Xingrong</td>
+                <td>Zong</td>
+                <td>24</td>
+            </tr>
+            <tr>
+                <td>Zhuowen</td>
+                <td>Chen</td>
+                <td>23</td>
+            </tr>
+        </table>
+        <hr>
+
+        <h2>Table</h2>
+        <table>
+            <tr>
+              <th>Name</th>
+              <td>Jill</td>
+            </tr>
+            <tr>
+              <th rowspan="2">Phone</th>
+              <td>555-1234</td>
+            </tr>
+            <tr>
+              <td>555-8745</td>
+          </tr>
+          </table>
+        <hr>
+
+        <h2>Table</h2>
+        <table style="width: 100%;">
+            <caption>Monthly savings</caption>
+            <tr> <!--table row-->
+                <th>Month</th>
+                <th>Savings</th>
+            </tr>
+            <tr>
+                <td>January</td>
+                <td>1000</td>
+            </tr>
+            <tr>
+                <td>February</td>
+                <td>1500</td>
+            </tr>
+        </table>
+        <hr>
+
+        <table>
+            <colgroup>
+              <col span="2" style="background-color: #D6EEEE">
+              <col span="3" style="background-color: pink">
+              <col span="2" style="visibility: collapse">
+            </colgroup>
+            <tr>
+              <th>MON</th>
+              <th>TUE</th>
+              <th>WED</th>
+              <th>THU</th>
+              <th>FRI</th>
+              <th>SAT</th>
+              <th>SUN</th>
+            </tr>
+        </table>  
+
+        <h2>Unordered HTML List</h2>
+        <ul style="list-style-type: disc;"> <!--circle, square, none-->
+            <li>Coffee</li> <!--list item-->
+            <li>Tea</li>
+            <li>Milk</li>
+        </ul>
+
+        <h2>Ordered HTML List</h2>
+        <ol type="1"> <!--A,a,I,i/ start="50"-->
+            <li>Coffee</li>
+            <li>Tea</li>
+            <li>Milk</li>
+        </ol>
+
+        <h2>Description List</h2>
+        <dl>
+            <dt>Coffee</dt>
+            <dd>- black hot drink</dd>
+            <dt>Milk</dt>
+            <dd>- white cold drink</dd>
+        </dl>
+        <hr>
+
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#news">News</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <li><a href="#about">About</a></li>
+        </ul>
+    </body>
+</html>
