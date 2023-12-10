@@ -33,6 +33,7 @@ db.once("connected", () => console.log("MongoDB connected successfully!"));
 */
 
 const app = express();
+app.use(express.static("public"));
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
 
@@ -76,7 +77,7 @@ app.get("/api/products/:id", async (req, res) => {
                 err: `Product not found`
             });
         } else {
-            res.json(product);
+            res.status(200).json(product);
         }
     } catch (err) {
         if (err.response) {
