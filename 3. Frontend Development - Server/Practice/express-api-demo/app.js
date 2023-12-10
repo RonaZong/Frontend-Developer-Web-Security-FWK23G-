@@ -8,7 +8,7 @@ app.use(bodyParser.json());
 const PORT = 3000;
 
 let idCount = 0;
-const books = [
+let books = [
     { id: ++idCount, title: "Book 1" },
     { id: ++idCount, title: "Book 2" },
 ];

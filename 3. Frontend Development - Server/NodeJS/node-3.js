@@ -26,21 +26,68 @@ rs.on("open", function() {
     console.log("The file is open");
 });
 
+
 /* Formidable Module uploads files */
 const formidable = require("formidable");
+// Save the File
+const fs = require("fs");
 
 http.createServer(function (req, res) {
-    res.writeHead(200, {"Content-Type": "text/html"});
+    // Parse the Uploaded File
+    if (req.url == "/fileupload") {
+        let form = new formidable.IncomingForm();
+        form.parse(req, function (err, fields, files) {
+            let oldpath = files.filetoupload.filepath;
+            let newpath = "C:/Users/ronaz/Desktop/" + files.filetoupload.originalFilename;
+            fs.rename(oldpath, newpath, function (err) {
+                if (err) throw err;
+                res.write("File uploaded and moved!");
+                res.end();
+            })
+        });
+    } else {
+        res.writeHead(200, {"Content-Type": "text/html"});
 
-    // Create an Upload Form
-    res.write("<form action='fileupload' method='post' enctype='multipart/form-data'>");
-    res.write("<input type='file' name='filetoupload'><br>");
-    res.write("<input type='submit'>");
-    res.write("</form>");
-
-    return res.end();
+        // Create an Upload Form
+        res.write("<form action='fileupload' method='post' enctype='multipart/form-data'>");
+        res.write("<input type='file' name='filetoupload'><br>");
+        res.write("<input type='submit'>");
+        res.write("</form>");
+        return res.end();
+    }
 // The server object listens to port 8080
 }).listen(8080);
+
+
+/* Nodeemailer Module sends email from your computer */
+const nodeemailer = require("nodemailer");
+
+// Send an Email
+let transporter = nodeemailer.createTransport({
+    service: "gmail",
+    auth: {
+        user: "ronazong@gmail.com",
+        pass: "password"
+    }
+});
+
+// Multiple Receivers
+let mailOptions = {
+    from: "ronazong@gmail.com",
+    to: "ronazong.work@gmail.com, ronazong.educ@gmail.com",
+    subject: "Sending Email using Node.js",
+    text: "That was easy!",
+    // Send HTML
+    html: "<h1>Welcome</h1><p>That was easy!</p>"
+};
+
+transporter.sendMail(mailOptions, function(err, info) {
+    if (err) {
+        console.log(err);
+    } else {
+        console.log("Email sent: " + info.response);
+    }
+})
 
 const os = require("os");
 // import os from "os";
