@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Practice</h1>  
+
+    <p>The user has visited this website <span id="visitCount">0</span> times.</p>
+    <p>Expires in: <span id="expire"></span>s</p>
+
+    <form id="entryForm">
+      <label for="userInput">Enter something:</label><br>
+      <input type="text" id="userInput">
+      <button type="submit">Submit</button>
+    </form>
+    
+    <p id="pastEntry">The text is added on <span id="timestamp"></span></p>
+
+    <button id="resetBt" type="button">Reset</button>
+    <button id="clickBt">Click</button>
+
+    <h2>Welcome back, you were here <span id="lastVisit"></span> seconds ago</h2>
+
+    <!-- 1.3c Add a button "Remove all cookies" which removes all cookies on your page. -->
+    <button id="removeCookies">Remove all cookies</button>
+    
+    <script src="script.js"></script>
+  </body>
+</html>
