@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <body>
+        <h1>Login</h1>
+        <form id="loginForm">
+            <input type="text" id="username" name="username" placeholder="Username">
+            <input type="password" id="password" name="password" placeholder="Password">
+            <button type="submit" id="loginButton">Login</button>
+            <!-- <p id="loginStatus"></p> -->
+        </form>
+
+        <h1>Register</h1>
+        <form id="registerForm" action="/register" method="post">
+            <input type="text" name="username" placeholder="Username">
+            <input type="password" name="password" placeholder="Password">
+            <button type="submit" id="registerButton">Register</button>
+        </form>
+
+        <script>
+            document.getElementById("loginForm").addEventListener("submit", e => {
+                e.preventDefault();
+
+                const formData = new FormData(this);
+                
+                fetch("/login", {
+                    method: "POST",
+                    body: formData
+                })
+                .then(res => {
+                    if (res.ok) {
+                        // console.log("Login request send.");
+                        // document.getElementById("loginStatus").innerHTML = "Login successful";
+                        return res.text();
+                    } else {
+                        throw new Error("Login failed.")
+                    }
+                })
+                .then(data => {
+                    console.log(data);
+                })
+                .catch(err => {
+                    console.err("Error:", err);
+                });
+            });         
+        </script>
+    </body>
+
+</html>

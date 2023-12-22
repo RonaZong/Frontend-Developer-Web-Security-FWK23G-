@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <body>
+        <!-- Make a website that has a form with username and password. The form sends a POST request to /login. Also add a page to the address /protected. -->
+        <h1>Login</h1>
+        <form action="/login" method="POST">
+            <input type="text" name="username" placeholder="Username">
+            <input type="password" name="password" placeholder="Password">
+            <input type="submit">
+        </form>
+        <a href="/protected">Navigate to a protected page</a>
+
+        <!-- Add the ability for a user to register on the page. -->
+        <h1>Register</h1>
+        <form action="/register" method="POST">
+            <input type="text:" name="username" placeholder="Username">
+            <input type="password" name="password" placeholder="Password">
+            <input type="text" name="isAdmin" placeholder="Is admin? Y or N">
+            <input type="submit">
+        </form>
+    </body>
+
+</html>
