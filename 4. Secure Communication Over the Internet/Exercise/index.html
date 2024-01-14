@@ -6,17 +6,20 @@
     <title>Document</title>
   </head>
   <body>
-    <h1>Practice</h1>  
+    <h1>Exercise</h1>  
 
+    <h2>Visit Count:</h2>
     <p>The user has visited this website <span id="visitCount">0</span> times.</p>
     <p>Expires in: <span id="expire"></span>s</p>
 
+    <!-- 1.2b Add a text form where a user can type something. Below that, there should be a heading "Past Entries" that shows what the user has entered in the field before. -->
     <form id="entryForm">
       <label for="userInput">Enter something:</label><br>
       <input type="text" id="userInput">
       <button type="submit">Submit</button>
     </form>
-    
+    <h2>Past Entries:</h2>
+    <ul id="pastEntries"></ul>
     <p id="pastEntry">The text is added on <span id="timestamp"></span></p>
 
     <button id="resetBt" type="button">Reset</button>
@@ -27,6 +30,6 @@
     <!-- 1.3c Add a button "Remove all cookies" which removes all cookies on your page. -->
     <button id="removeCookies">Remove all cookies</button>
     
-    <script src="script.js"></script>
+    <script src="1. Cookies and Storage.js"></script>
   </body>
 </html>

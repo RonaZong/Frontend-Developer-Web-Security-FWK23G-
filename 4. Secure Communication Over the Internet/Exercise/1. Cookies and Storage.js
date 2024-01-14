@@ -1,10 +1,10 @@
-// Exercises:
 /* Cookies and Storage */
 // 1.1 Write a script that stores your name and hometown in localStorage.
 localStorage.setItem("username", "Rona");
 localStorage.setItem("hometown", "Shanghai");
 
 // 1.2a Build a website that shows how many times the user has visited your website.
+// Store the visit in localStorage
 let visitCount = localStorage.getItem("visitCount");
 if (visitCount) {
   visitCount = parseInt(visitCount) + 1;
@@ -15,17 +15,65 @@ localStorage.setItem("visitCount", visitCount);
 document.getElementById("visitCount").textContent = visitCount;
 
 // 1.2b Add a text form where a user can type something. Below that, there should be a heading "Past Entries" that shows what the user has entered in the field before.
+const entryForm = document.getElementById("entryForm");
+const userInput = document.getElementById("userInput");
+const pastEntriesList = document.getElementById("pastEntries");
+const pastEntry = document.getElementById("pastEntry");
+
+entryForm.addEventListener("submit", e => {
+  e.preventDefault();
+
+  // Get userinput
+  const entryText = userInput.value;
+  pastEntry.textContent = entryText;
+
+  // if (entryText.trim() !== "") {
+  //   const entryListItem = document.createElement("li");
+  //   entryListItem.textContent = entryText;
+  //   pastEntriesList.appendChild(entryListItem);
+
+    // Store the entry in localStorage
+    let pastEntries = localStorage.getItem("pastEntries");
+    console.log(pastEntries);
+    if (pastEntries) {
+  //     pastEntries = JSON.parse(pastEntries);
+        pastEntries.forEach(entry => {
+          console.log(entry);
+  //         const entryListItem = document.createElement("li");
+          entryText.textContent = entry;
+  //           pastEntriesList.appendChild(entryListItem);
+        });
+    } else {
+      pastEntries = [];
+    }
+  //   pastEntries.push(entryText);
+    localStorage.setItem("pastEntries", JSON.stringify(pastEntries));
+
+    // Clear the input field
+    userInput.value = "";
+  // }
+});
+
+// Display past entries on page load
+// const storedEntries = localStorage.getItem("pastEntries");
+// if (storedEntries) {
+//   const pastEntries = JSON.parse(storedEntries);
+//   pastEntries.forEach(entry => {
+//     const entryListItem = document.createElement("li");
+//     entryText.textContent = entry;
+//     pastEntriesList.appendChild(entryListItem);
+//   });
+// }
+
 
 // 1.2c Make sure that "Past Entries" do not disappear if you reload the page.
-document.getElementById("pastEntry").innerHTML = "";
+
 // 1.2d Add a timestamp to each entry.
 // document.getElementById("timestamp").innerHTML = "";
 
 
 // 1.2e Add a button that resets the number of visits to zero.
-document.getElementById("resetBt").click = function() {
-    res.session.clear();
-}
+
 
 // 1.3a Make a website that contains a button. If you press the button, the browser must store a cookie with the name clicks. clicks increases by 1 for each time the user presses the button.
 
