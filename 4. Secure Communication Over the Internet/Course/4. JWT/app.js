@@ -7,6 +7,9 @@ const jwt = require("jsonwebtoken");
 
 const app = express();
 const PORT = 8000;
+app.listen(PORT, () => {
+    console.log(`Server is listening on ${PORT}`);
+});
 
 const redisClient = createClient();
 redisClient.connect();
@@ -51,7 +54,3 @@ app.get("/protected", (req, res, next) => {
 });
     
 app.use(express.static("public"));
-
-app.listen(PORT, () => {
-    console.log(`Server is listening on ${PORT}`);
-});

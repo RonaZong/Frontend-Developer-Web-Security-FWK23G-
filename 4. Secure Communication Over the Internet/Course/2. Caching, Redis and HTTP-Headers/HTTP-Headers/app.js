@@ -1,10 +1,9 @@
-// npm install connect-redis, redis, nodemon, cookie-parser,
+// npm install express, express-session, redis, connect-redis, cookie-parser, helmet
 const express = require("express");
 const session = require("express-session");
-const {createClient} = require("redis");
+const { createClient } = require("redis");
 const RedisStore = require("connect-redis").default;
 const cookieParser = require("cookie-parser");
-
 // HTTP-Header, npm install helmet
 const helmet = require("helmet");
 
@@ -16,51 +15,37 @@ app.listen(PORT, () => {
     console.log(`Server is listening on ${PORT}`);
 });
 
-
-// Create a redis-client
-// With client we can interact with Redis
 const redisClient = createClient();
 redisClient.connect();
 
-// Redisstore configurate redis to use with express-session
-const redisStore = new RedisStore({client: redisClient, prefix: "session:",});
+const redisStore = new RedisStore({
+    client: redisClient,
+    prefix: "session:",
+});
 
 app.use(cookieParser());
 
 app.use(helmet()); // Helmet adds recommended headers
 
-app.use(session({
-    secret: "myUnsafeSecret",
-    saveUninitialized: false,
-    resave: false,
-    store: redisStore, // All session data should store in redis store
-}));
+app.use(
+    session({
+        secret: "myUnsafeSecret",
+        saveUninitialized: false,
+        resave: false,
+        store: redisStore,
+    })
+);
 
 app.get("/", (req, res) => {
     if (!req.session.pageViews) {
         req.session.pageViews = 0;
     }
     req.session.pageViews++;
-    console.log(req.cookies);
+    console.log(req.headers);
     res.send(`You have visited the page ${req.session.pageViews} times!`);
-});
 
-app.get("/username", async(_req, res) => {
-    const username = await redisClient.get("username");
-    res.send(username);
-});
+})
 
-app.post("/username", async(_req, res) => {
-    await redisClient.set("username", "rona");
-    res.send("Username updated");
-});
-
-app.delete("/session", (req, res) => {
-    req.session.destroy();
-    res.send("session destroyed");
-});
-
-// http-header
 app.get("/json", (_req, res) => {
     res.json({msg: "This is a JSON response!"});
 }); // We get "Content-type": "application/json"
@@ -107,12 +92,10 @@ app.get("/iframe", (_req, res) => {
 });
 
 /*
-1. Kolla på lite headers i / både i postman och webbläsaren
-2. Sätt lite random headers som förvirrar.
-3. Visa externa script
-4. Visa iframe
-5. Visa helmet
-6. Vilka sårbarheter kan headers skydda mot? Vilka inte?
+1. Check some headers in / both in postman and the browser
+2. Put some random headers that confuse.
+3. Show external scripts
+4. Show the iframe
+5. Display the helmet
+6. What vulnerabilities can headers protect against? Which ones don't?
  */
-  
-

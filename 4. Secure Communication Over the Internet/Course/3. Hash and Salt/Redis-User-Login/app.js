@@ -1,9 +1,8 @@
 // npm install connect-redis, redis, nodemon, cookie-parser,
 const express = require("express");
 const session = require("express-session");
-const {createClient} = require("redis");
+const { createClient } = require("redis");
 const RedisStore = require("connect-redis").default;
-
 // User login
 const bodyParser = require("body-parser");
 

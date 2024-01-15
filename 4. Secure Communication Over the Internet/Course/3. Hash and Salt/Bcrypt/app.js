@@ -1,17 +1,22 @@
 const express = require("express");
 const session = require("express-session");
-const {createClient} = require("redis");
+const { createClient } = require("redis");
 const RedisStore = require("connect-redis").default;
 const bodyParser = require("body-parser");
-const {compareSync, hashSync} = require("bcrypt");
+const { compareSync, hashSync } = require("bcrypt");
 
 const app = express();
+const PORT = 8000;
+app.listen(PORT, () => {
+  console.log(`Server is listening on ${PORT}`);
+});
+
 const redisClient = createClient();
 redisClient.connect();
 
 const redisStore = new RedisStore({client: redisClient, prefix: "session:"});
 
-app.use(bodyParser.urlencoded({extended: false}));
+app.use(bodyParser.urlencoded({ extended: false }));
 app.use(
     session({
         secret: "myUnsafeSecret",
@@ -38,12 +43,12 @@ app.get("/protected", (req, res, next) => {
 app.post("/register", async (req, res) => {
     const { username, password } = req.body;
   
-    //HashSync tar emot 2 argument.
-    // 1. Lösenordet som ska hashas.
-    // 2. Hur många omgångar det ska saltas. Mer salt = långsammare och säkrare
+    // HashSync accepts 2 arguments.
+    // 1. The password to be hashed.
+    // 2. How many rounds it should be salted. More salt = slower and safer
     const hashedPassword = hashSync(password, 10);
   
-    //Med detta så lagras det hashade värdet i databasen.
+    // With this, the hashed value is stored in the database.
     await redisClient.set(`user:${username}`, hashedPassword);
     res.send("Successfully registered!");
 });
@@ -51,7 +56,7 @@ app.post("/register", async (req, res) => {
 app.post("/login", async (req, res) => {
     const { username, password } = req.body;
     const dbPassword = await redisClient.get(`user:${username}`);
-    //CompareSync hashar det första argumentet och kollar om det blir det andra argumentet.
+    // CompareSync hashes the first argument and checks if it becomes the second argument.
     if (compareSync(password, dbPassword)) {
       req.session.isLoggedIn = true;
       res.redirect("/protected");
@@ -61,5 +66,3 @@ app.post("/login", async (req, res) => {
 });
 
 app.use(express.static("public"));
-
-app.listen(8000);
