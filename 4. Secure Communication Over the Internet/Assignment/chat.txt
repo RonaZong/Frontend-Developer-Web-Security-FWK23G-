@@ -1,0 +1,100 @@
+npm install express, express-session, redis, connect-redis, bcrypt, jsonwebtoken, dotenv, body-parser, cookie-parser.
+
+Your task is to create a blog. In the blog you can see the blog posts of different users.
+All users should see in their feed the various blog posts and who has created them. The blog posts only contain text and a title.
+
+Requirements:
+[G] Each user can log in with a unique username and password.
+[G] The password is saved hashed and salted in the database.
+[G] The page should remember who you are - if you open the page again, you should still be logged in. Within a reasonable time frame of course. It should also say up in the right corner "logged in as {username}".
+[G] The application can be started without problems.
+[G] The blog posts are in a database and not hardcoded.
+[G] Each blog entry must state who wrote it.
+[G] Each blog post must have a date and time attached to it.
+[G] The app stores any session data in a database, not in memory.
+[G] The application uses appropriate methods and status codes.
+[G] There is an admin login. The admin login must have permission to remove all posts from the platform.
+[G] New users should be able to register.
+[G] A user can login/register via GitHub (OAuth 2.0).
+[G] Each user can post blog posts themselves via a form.
+[G] Each user can delete their own posts.
+Users can comment on each other's posts. In the comment field, the user must be able to use HTML to format their posts. <b>example</b> becomes example.
+The site uses several methods to secure itself against XSS and CSRF.
+In your submission, please specify some code changes and instruct how one could perform an XSS attack with the protections removed. It is enough to inject an alert().
+Users can “like” each other's posts. It must then appear in all posts who/who liked the post. If you are inside the page when someone likes your post, you get a notification, without having to refresh the page (use WebSockets for this).
+
+const sanitizedAttributeValue = xss.escapeAttrValue('<script>alert("XSS")</script>');
+
+// =================================================
+// COMMENTS SECTION
+// =================================================
+
+// Get a list of comments on a specific blog post
+// app.get('/blog/:id/comments', async (req, res) => {
+//     try{
+//         const commentList = await redisClient.lRange(`commentlist:${req.params.id}`, 0, -1);
+//         res.json(JSON.parse(commentList));
+//     } catch(err){
+//         console.error(err);
+//         res.status(500).json({message:'Server error'});
+//     }
+// });
+
+// // Add a new comment to a blog post
+// app.post('/blog/:id/comment', validateCommentPost, async (req,res)=>{
+//     // Create a new id for this comment
+//     const newId = uuidv4();
+    
+//     // Save the new comment to Redis with its unique ID
+//     await redisClient.rPush(`commentlist:${req.params.id}`, JSON.stringify({...req.body, id:newId}));
+    
+//     // Send back the new comment object with its ID
+//     res.json({...req.body, id:newId});
+// });
+
+// // Delete a single comment by its unique ID
+// app.delete('/blog/:id/comment/:cid', isAuthorOrAdmin, async (req,res) => {
+//     const index = await redisClient.lIndex(`commentlist:${req.params.id}`, "LINDEX", req.params.cid);
+//     if(!index) return res.status(404).json({message:'No such comment.'});
+    
+//     // Parse the comment from its stored string format
+//     let comment = JSON.parse(index);
+    
+//     // Check that the user trying to delete the comment is the author or an admin
+//     if(req.user.username !== comment.author) {
+//         return res.status(403).json({message:'You do not have permission to perform this action.'});
+//     }
+    
+//     // Remove the comment from the list of comments for this blog post
+//     await redisClient.lRem(`commentlist:${req.params.id}`, 0 ,`"${comment.id}"`);
+    
+//     res.json(comment);
+// });
+
+        <!-- <script>
+            document.getElementById("loginForm").addEventListener("submit", e => {
+                e.preventDefault();
+
+                const formData = new FormData(this);
+                
+                fetch("/login", {
+                    method: "POST",
+                    body: formData
+                })
+                .then(res => {
+                    if (res.ok) {
+                        // console.log("Login request send.");
+                        // document.getElementById("loginStatus").innerHTML = "Login successful";
+                        return res.text();
+                    } else {
+                        throw new Error("Login failed.")
+                    }
+                })
+                .then(data => {
+                    console.log(data);
+                })
+                .catch(err => {
+                    console.err("Error:", err);
+                });
+            });         
+        </script> -->

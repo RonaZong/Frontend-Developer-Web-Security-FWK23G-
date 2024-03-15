@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog</title>
+</head>
+<body>
+    <!-- Display username -->
+    <form action="/logout" method="GET" style="float: right;">
+        <p>Logged in as <%= user.username %></p>
+        <button type="submit" style="float: right;">Logout</button>
+    </form>
+
+    <h1>Welcome <%= user.username %>!</h1>
+
+    <h2>Blog Posts</h2>
+    
+    <% if (blogPosts.length === 0) { %>
+        <p>No blog posts available.</p>
+    <% } else { %>
+        <ul id="blogPosts">
+            <!-- Iterates over the blog posts array -->
+            <% blogPosts.forEach(post => { %>
+                <li>
+                    <h3><%= post.title %></h3>
+                    <p><%= post.text %></p>
+                    <p>Author: <%= post.author %></p>
+                    <p>Date: <%= post.date %></p>
+                    <!-- Add logic for delete button if the post is owned by the current user -->
+                    <% if (user.username === post.author) { %>
+                        <form action="/blog/delete/<%= post.id %>" method="POST">
+                            <!-- <input type="hidden" name="_method" value="DELETE"> -->
+                            <button type="submit">Delete Post</button>
+                        </form>
+                    <% } %>
+                </li>
+            <% }); %>
+        </ul>
+    <% } %>
+
+    <h2>Create a New Post</h2>
+    <form action="/blog/create" method="POST">
+        <input type="text" id="title" name="title" placeholder="Title" required>
+        <br>
+        <textarea id="text" name="text" placeholder="Post content" required></textarea>
+        <br>
+        <button type="submit">Create Post</button>
+    </form>
+</body>
+</html>

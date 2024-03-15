@@ -42,7 +42,7 @@ app.get("/protected", (req, res, next) => {
 
     // Invalid token gives an error
     try {
-        const payload = jwt.verify(token, "mySecretKey"); // {username: username. canViewProtected: true}
+        const payload = jwt.verify(token, "mySecretKey"); // {username: username, canViewProtected: true}
         if (payload.canViewProtected) {
             next();
         } else {

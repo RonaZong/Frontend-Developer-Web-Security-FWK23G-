@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Index</title>
+        <script src="/socket.io/socket.io.js"></script>
+    </head>
+    <body>
+        <h1>Login</h1>
+        <form id="loginForm" action="/login" method="POST">
+            <input type="text" id="username" name="username" placeholder="Username" required> 
+            <input type="password" id="password" name="password" placeholder="Password" required>
+            <button type="submit" id="loginButton">Login</button>
+        </form>
+        
+        <h1>Login with GitHub</h1>
+            <a href="/auth/github">Login with GitHub</a>
+
+
+        <h1>Register</h1>
+        <form id="registerForm" action="/register" method="POST">
+            <input type="text" name="username" placeholder="Username" required>
+            <input type="password" name="password" placeholder="Password" required>
+            <button type="submit" id="registerButton">Register</button>
+        </form>
+
+        <!-- TODO: In your submission, please specify some code changes and instruct how one could perform an XSS attack with the protections removed. It is enough to inject an alert(). -->
+        <!-- <script>alert('XSS attack');</script> -->
+        <script>
+            const socket = io();
+
+            // Listen for like notifications
+            socket.on("likeNotification", (data) => {
+                console.log(`${data.username} like post ${data.postId}`);
+            });
+
+
+        </script>
+    </body>
+</html>

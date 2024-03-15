@@ -4,6 +4,7 @@ const session = require("express-session");
 const redis = require("redis");
 const RedisStore = require("connect-redis").default;
 const bodyParser = require("body-parser");
+
 //npm install dotenv
 const dotenv = require("dotenv");
 
@@ -51,7 +52,7 @@ function hasPermission(action) {
 app.post("/login", (req, res) => {
     const { username } = req.body;
     // Do password authentication here
-    req.session,username = username;
+    req.session.username = username;
     res.send("Login successful");
 });
 

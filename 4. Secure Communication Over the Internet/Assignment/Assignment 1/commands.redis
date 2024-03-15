@@ -11,3 +11,7 @@ blog entry
 title
 author
 creted on
+
+HMSET blogpost:<id> title "Post Title" text "Post text here" author "Author Name" date "YYYY-MM-DD HH:MM"
+
+HGETALL blogpost:<id>
