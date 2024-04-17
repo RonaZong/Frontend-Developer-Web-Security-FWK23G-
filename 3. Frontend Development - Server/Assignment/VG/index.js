@@ -11,7 +11,7 @@ const mongoose = require("mongoose");
 const Product = require("./database.js");
 
 // Install npm i nodemon dotenv
-// in thapackage.json file
+// in the package.json file
 // "scripts": {
 //     "start": "nodemon index.js"
 // },
