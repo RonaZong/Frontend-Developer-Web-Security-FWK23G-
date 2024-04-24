@@ -1,16 +1,10 @@
 // Backend database
 const mongoose = require("mongoose");
+const express = require("express");
+const cors = require("cors");
+const ejs = require("ejs");
 
-mongoose.connect("mongodb://localhost:27017", {
-  dbName: "dogbook",
-});
-
-const db = mongoose.connection;
-db.on("error", (err) =>
-  err ? console.log(err) : console.log("Connected to dogbook database.")
-);
-
-// Schema for users and dogbooks of app
+// Schema for users and dogbooks
 const UserSchema = new mongoose.Schema({
   name: {
     type: String,
@@ -22,7 +16,7 @@ const UserSchema = new mongoose.Schema({
   },
 });
 
-const DogbookSchema = new mongoose.Schema({
+const DogSchema = new mongoose.Schema({
   name: { type: String, required: true },
   nickname: { type: String, required: false },
   age: { type: Number, required: true },
@@ -33,42 +27,75 @@ const DogbookSchema = new mongoose.Schema({
   image: { type: String, required: true },
 });
 
-const User = mongoose.model("users", UserSchema);
-const Dogbook = mongoose.model("dogbooks", DogbookSchema);
+const User = mongoose.model("user", UserSchema);
+const Dog = mongoose.model("dog", DogSchema);
 User.createIndexes();
-Dogbook.createIndexes();
+Dog.createIndexes();
 
-const express = require("express");
+// To conect with mongoDB database
+mongoose
+  .connect("mongodb://localhost:27017", {
+    dbName: "dogbook",
+  })
+  .then(() => {
+    console.log("Connection Successfull!");
+  })
+  .catch((err) => {
+    console.log(err);
+  });
+
+
+// For backend and express
 const app = express();
 app.use(express.json());
-const cors = require("cors");
 app.use(cors());
+app.set("view engine", "ejs");
 
-const PORT = 5000
-console.log(`App listen at port ${PORT}`);
+const PORT = 5000;
 
 app.get("/", (req, res) => {
   res.send("App is Working");
 });
 
-app.post("/register", async (req, resp) => {
-    try {
-        const user = new User(req.body);
-        let result = await user.save();
-        result = result.toObject();
-        if (result) {
-            delete result.password;
-            resp.send(req.body);
-            console.log(result);
-        } else {
-            console.log("User already register");
-        }
- 
-    } catch (e) {
-        resp.send("Something Went Wrong");
-    }
+app.get("/dog", async (req, res) => {
+  res.render("dog");
 });
 
+app.post("/dog", async (req, res) => {
+  console.log(req.body.name);
+  const dog = new Dog({
+    name: req.body.name,
+    nickname: req.body.nickname,
+    age: req.body.age,
+    gender: req.body.gender,
+    breed: req.body.breed,
+    bio: req.body.bio,
+  });
 
+  dog.save((err) => {
+    if (err) {
+      throw err;
+    } else {
+      res.render("dog");
+    }
+  });
+});
 
-app.listen(PORT);
+app.post("/register", async (req, resp) => {
+  try {
+    const user = new User(req.body);
+    let result = await user.save();
+    result = result.toObject();
+    if (result) {
+      delete result.password;
+      resp.send(req.body);
+      console.log(result);
+    } else {
+      console.log("User already register");
+    }
+  } catch (e) {
+    resp.send("Something Went Wrong");
+  }
+});
+
+app.listen(PORT, () => console.log(`App listen at port ${PORT}`));
