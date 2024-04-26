@@ -57,11 +57,16 @@ app.get("/", (req, res) => {
   res.send("App is Working");
 });
 
-app.get("/dog", async (req, res) => {
+app.get("/api/dog", async (req, res) => {
+  const dogs = await Dog.find();
+  res.json(dogs);
+});
+
+app.get("/dog", (req, res) => {
   res.render("dog");
 });
 
-app.post("/dog", async (req, res) => {
+app.post("/api/dog", async (req, res) => {
   console.log(req.body.name);
   const dog = new Dog({
     name: req.body.name,
